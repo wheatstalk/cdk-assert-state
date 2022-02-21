@@ -10,7 +10,7 @@ export interface ExpectStateProps {
   readonly assert: Assert;
 }
 
-export class ExpectState extends StateMachineFragment {
+export class AssertState extends StateMachineFragment {
   readonly endStates: INextable[];
   readonly startState: State;
 
@@ -37,14 +37,14 @@ export class ExpectState extends StateMachineFragment {
 }
 
 export abstract class Assert {
-  static expressions(expressions: Expr[]): ExpressionAssertion {
-    return new ExpressionAssertion(expressions);
+  static expressions(expressions: Expr[]): AssertExpressions {
+    return new AssertExpressions(expressions);
   }
 
   abstract renderCode(): string;
 }
 
-export class ExpressionAssertion extends Assert {
+export class AssertExpressions extends Assert {
   private readonly statements: Expr[];
 
   constructor(statements: Expr[]) {

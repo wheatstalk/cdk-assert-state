@@ -1,8 +1,8 @@
 {
-  "name": "@wheatstalk/cdk-expect-state",
+  "name": "@wheatstalk/cdk-assert-state",
   "repository": {
     "type": "git",
-    "url": "https://github.com/wheatstalk/cdk-expect-state.git"
+    "url": "https://github.com/wheatstalk/cdk-assert-state.git"
   },
   "scripts": {
     "build": "npx projen build",

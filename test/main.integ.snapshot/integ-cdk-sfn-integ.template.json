@@ -1,6 +1,6 @@
 {
   "Resources": {
-    "TestExpectExpectFunctionServiceRoleFDD34F42": {
+    "TestAssertExpectFunctionServiceRoleAF0E12C1": {
       "Type": "AWS::IAM::Role",
       "Properties": {
         "AssumeRolePolicyDocument": {
@@ -31,10 +31,10 @@
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "integ-cdk-sfn-integ/TestExpect/ExpectFunction/ServiceRole/Resource"
+        "aws:cdk:path": "integ-cdk-sfn-integ/TestAssert/ExpectFunction/ServiceRole/Resource"
       }
     },
-    "TestExpectExpectFunction6BB26135": {
+    "TestAssertExpectFunction7114C7B1": {
       "Type": "AWS::Lambda::Function",
       "Properties": {
         "Code": {
@@ -45,7 +45,7 @@
         },
         "Role": {
           "Fn::GetAtt": [
-            "TestExpectExpectFunctionServiceRoleFDD34F42",
+            "TestAssertExpectFunctionServiceRoleAF0E12C1",
             "Arn"
           ]
         },
@@ -59,10 +59,10 @@
         "Runtime": "nodejs14.x"
       },
       "DependsOn": [
-        "TestExpectExpectFunctionServiceRoleFDD34F42"
+        "TestAssertExpectFunctionServiceRoleAF0E12C1"
       ],
       "Metadata": {
-        "aws:cdk:path": "integ-cdk-sfn-integ/TestExpect/ExpectFunction/Resource"
+        "aws:cdk:path": "integ-cdk-sfn-integ/TestAssert/ExpectFunction/Resource"
       }
     },
     "TestStateMachineRole4A9762A7": {
@@ -106,7 +106,7 @@
               "Effect": "Allow",
               "Resource": {
                 "Fn::GetAtt": [
-                  "TestExpectExpectFunction6BB26135",
+                  "TestAssertExpectFunction7114C7B1",
                   "Arn"
                 ]
               }
@@ -141,7 +141,7 @@
               "{\"StartAt\":\"TestInput\",\"States\":{\"TestInput\":{\"Type\":\"Pass\",\"Parameters\":{\"integ\":true,\"number\":1},\"Next\":\"Expect\"},\"Expect\":{\"End\":true,\"Retry\":[{\"ErrorEquals\":[\"Lambda.ServiceException\",\"Lambda.AWSLambdaException\",\"Lambda.SdkClientException\"],\"IntervalSeconds\":2,\"MaxAttempts\":6,\"BackoffRate\":2}],\"Type\":\"Task\",\"Resource\":\"",
               {
                 "Fn::GetAtt": [
-                  "TestExpectExpectFunction6BB26135",
+                  "TestAssertExpectFunction7114C7B1",
                   "Arn"
                 ]
               },

@@ -5,8 +5,8 @@ const project = new awscdk.AwsCdkConstructLibrary({
   authorAddress: 'joshkellendonk@gmail.com',
   cdkVersion: '2.1.0',
   defaultReleaseBranch: 'main',
-  name: '@wheatstalk/cdk-expect-state',
-  repositoryUrl: 'https://github.com/wheatstalk/cdk-expect-state.git',
+  name: '@wheatstalk/cdk-assert-state',
+  repositoryUrl: 'https://github.com/wheatstalk/cdk-assert-state.git',
 
   devDeps: [
     'expect',

@@ -1,2 +1,2 @@
-export * from './expect-state';
+export * from './assert-state';
 export * from './expr';

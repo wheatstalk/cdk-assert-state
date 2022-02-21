@@ -1,8 +1,9 @@
 import { App, Stack } from 'aws-cdk-lib';
 import { Chain, Pass } from 'aws-cdk-lib/aws-stepfunctions';
-import { Assert, ExpectState, Expr } from '../src';
+import { Assert, AssertState, Expr } from '../src';
 import { IntegrationTest } from '../src/integration-test';
 
+// To ease in copy-pasting below
 class StateMachine extends IntegrationTest {}
 
 const app = new App();
@@ -15,7 +16,7 @@ const input = new Pass(stack, 'TestInput', {
   },
 });
 
-const expect = new ExpectState(stack, 'TestExpect', {
+const expect = new AssertState(stack, 'TestAssert', {
   assert: Assert.expressions([
     Expr.expect(Expr.input()).toEqual(
       Expr.objectContaining({
