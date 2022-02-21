@@ -1,12 +1,15 @@
 {
-  "name": "cdk-sfn-integ",
+  "name": "@wheatstalk/cdk-expect-state",
   "repository": {
     "type": "git",
-    "url": "https://github.com/joshkellendonk/cdk-sfn-integ.git"
+    "url": "https://github.com/wheatstalk/cdk-expect-state.git"
   },
   "scripts": {
     "build": "npx projen build",
     "bump": "npx projen bump",
+    "bundle": "npx projen bundle",
+    "bundle:expect.lambda": "npx projen bundle:expect.lambda",
+    "bundle:expect.lambda:watch": "npx projen bundle:expect.lambda:watch",
     "clobber": "npx projen clobber",
     "compat": "npx projen compat",
     "compile": "npx projen compile",
@@ -14,6 +17,12 @@
     "docgen": "npx projen docgen",
     "eject": "npx projen eject",
     "eslint": "npx projen eslint",
+    "integ:main:assert": "npx projen integ:main:assert",
+    "integ:main:deploy": "npx projen integ:main:deploy",
+    "integ:main:destroy": "npx projen integ:main:destroy",
+    "integ:main:snapshot": "npx projen integ:main:snapshot",
+    "integ:main:watch": "npx projen integ:main:watch",
+    "integ:snapshot-all": "npx projen integ:snapshot-all",
     "package": "npx projen package",
     "package-all": "npx projen package-all",
     "package:js": "npx projen package:js",
@@ -26,7 +35,6 @@
     "test:watch": "npx projen test:watch",
     "unbump": "npx projen unbump",
     "upgrade": "npx projen upgrade",
-    "upgrade-projen": "npx projen upgrade-projen",
     "watch": "npx projen watch",
     "projen": "npx projen"
   },
@@ -36,26 +44,32 @@
     "organization": false
   },
   "devDependencies": {
+    "@types/aws-lambda": "^8.10.92",
     "@types/jest": "^27.4.0",
     "@types/node": "^12",
     "@typescript-eslint/eslint-plugin": "^5",
     "@typescript-eslint/parser": "^5",
+    "@wheatstalk/aws-cdk-exec": "^0.1.6",
+    "aws-cdk": "^2",
     "aws-cdk-lib": "2.1.0",
     "constructs": "10.0.5",
+    "esbuild": "^0.14.23",
     "eslint": "^8",
     "eslint-import-resolver-node": "^0.3.6",
     "eslint-import-resolver-typescript": "^2.5.0",
     "eslint-plugin-import": "^2.25.4",
+    "expect": "^27.5.1",
     "jest": "^27.5.1",
     "jest-junit": "^13",
     "jsii": "^1.54.0",
     "jsii-diff": "^1.54.0",
-    "jsii-docgen": "^6.1.9",
+    "jsii-docgen": "^6.1.10",
     "json-schema": "^0.4.0",
     "npm-check-updates": "^12",
     "projen": "^0.52.38",
     "standard-version": "^9",
     "ts-jest": "^27.1.3",
+    "ts-node": "^10.5.0",
     "typescript": "^4.5.5"
   },
   "peerDependencies": {
@@ -67,6 +81,9 @@
   ],
   "main": "lib/index.js",
   "license": "Apache-2.0",
+  "publishConfig": {
+    "access": "public"
+  },
   "version": "0.0.0",
   "jest": {
     "testMatch": [

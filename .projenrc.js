@@ -1,15 +1,44 @@
-const { awscdk } = require('projen');
+const { awscdk, javascript } = require('projen');
+
 const project = new awscdk.AwsCdkConstructLibrary({
   author: 'Josh Kellendonk',
   authorAddress: 'joshkellendonk@gmail.com',
   cdkVersion: '2.1.0',
   defaultReleaseBranch: 'main',
-  name: 'cdk-sfn-integ',
-  repositoryUrl: 'https://github.com/joshkellendonk/cdk-sfn-integ.git',
+  name: '@wheatstalk/cdk-expect-state',
+  repositoryUrl: 'https://github.com/wheatstalk/cdk-expect-state.git',
 
-  // deps: [],                /* Runtime dependencies of this module. */
-  // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
-  // devDeps: [],             /* Build dependencies for this module. */
-  // packageName: undefined,  /* The "name" in package.json. */
+  devDeps: [
+    'expect',
+    '@types/aws-lambda',
+    '@wheatstalk/aws-cdk-exec',
+  ],
+
+  integrationTestAutoDiscover: false,
+  lambdaAutoDiscover: false,
+
+  releaseToNpm: true,
+  npmAccess: javascript.NpmAccess.PUBLIC,
+
+  depsUpgradeOptions: {
+    ignoreProjen: false,
+  },
+  autoApproveUpgrades: true,
+  autoApproveOptions: {
+    allowedUsernames: ['misterjoshua'],
+  },
 });
+
+new awscdk.AutoDiscover(project, {
+  srcdir: project.srcdir,
+  testdir: project.testdir,
+  tsconfigPath: project.tsconfigDev.fileName,
+  cdkDeps: project.cdkDeps,
+  integrationTestOptions: {
+    pathMetadata: true,
+  },
+});
+
+project.addGitIgnore('/.idea');
+
 project.synth();

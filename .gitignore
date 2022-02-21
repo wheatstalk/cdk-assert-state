@@ -4,6 +4,7 @@
 !/.projen/deps.json
 !/.projen/files.json
 !/.github/workflows/pull-request-lint.yml
+!/.github/workflows/auto-approve.yml
 !/.github/workflows/stale.yml
 !/package.json
 !/LICENSE
@@ -50,4 +51,16 @@ junit.xml
 .jsii
 tsconfig.json
 !/API.md
+/assets/
+!/src/expect-function.ts
+test/.tmp
+test/main.integ.snapshot/asset.*
+test/main.integ.snapshot/**/asset.*
+test/main.integ.snapshot/cdk.out
+test/main.integ.snapshot/**/cdk.out
+test/main.integ.snapshot/manifest.json
+test/main.integ.snapshot/**/manifest.json
+test/main.integ.snapshot/tree.json
+test/main.integ.snapshot/**/tree.json
+/.idea
 !/.github/workflows/upgrade-main.yml
