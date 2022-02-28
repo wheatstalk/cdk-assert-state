@@ -956,10 +956,10 @@
     "@typescript-eslint/types" "5.12.1"
     eslint-visitor-keys "^3.0.0"
 
-"@wheatstalk/aws-cdk-exec@^0.1.14":
-  version "0.1.14"
-  resolved "https://registry.yarnpkg.com/@wheatstalk/aws-cdk-exec/-/aws-cdk-exec-0.1.14.tgz#c1b43c3fa0517025a469cfa4f4d4fcb5cf993222"
-  integrity sha512-RVFyfBv0/jXHkOtZMVqfEi4r9mkg/lY7tsP+Tv3cXfk5dFTJzSSZrpPYDbZIPcdbE3yMWfvDfn/kAsMmmGkv/g==
+"@wheatstalk/aws-cdk-exec@^0.1.15":
+  version "0.1.15"
+  resolved "https://registry.yarnpkg.com/@wheatstalk/aws-cdk-exec/-/aws-cdk-exec-0.1.15.tgz#986c140135a1b5a1c61a8485b24cf652f4c6c5d0"
+  integrity sha512-NJVSf+7M4vAXZPdojzrRM2zoNDdm1XKhp6mUKuKC2s/XRgpxOLD7XnpoGZIlZ6fevhVomVE/gOCGKZ5J4FXhCQ==
   dependencies:
     aws-sdk "^2.0.0"
     chalk "^4.0.0"
@@ -6358,9 +6358,9 @@ yargs-parser@20.x, yargs-parser@^20.2.2, yargs-parser@^20.2.3:
   integrity sha512-y11nGElTIV+CT3Zv9t7VKl+Q3hTQoT9a1Qzezhhl6Rp21gJ/IVTW7Z3y9EWXhuUBC2Shnf+DX0antecpAwSP8w==
 
 yargs-parser@^21.0.0:
-  version "21.0.0"
-  resolved "https://registry.yarnpkg.com/yargs-parser/-/yargs-parser-21.0.0.tgz#a485d3966be4317426dd56bdb6a30131b281dc55"
-  integrity sha512-z9kApYUOCwoeZ78rfRYYWdiU/iNL6mwwYlkkZfJoyMR1xps+NEBX5X7XmRpxkZHhXJ6+Ey00IwKxBBSW9FIjyA==
+  version "21.0.1"
+  resolved "https://registry.yarnpkg.com/yargs-parser/-/yargs-parser-21.0.1.tgz#0267f286c877a4f0f728fceb6f8a3e4cb95c6e35"
+  integrity sha512-9BK1jFpLzJROCI5TzwZL/TU4gqjK5xiHV/RfWLOahrjAko/e4DJkRDZQXfvqAsiZzzYhgAzbgz6lg48jcm4GLg==
 
 yargs@^16.0.0, yargs@^16.2.0:
   version "16.2.0"
