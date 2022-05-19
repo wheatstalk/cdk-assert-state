@@ -31,7 +31,8 @@
         "OUTFILE": "package.json",
         "CHANGELOG": "dist/changelog.md",
         "BUMPFILE": "dist/version.txt",
-        "RELEASETAG": "dist/releasetag.txt"
+        "RELEASETAG": "dist/releasetag.txt",
+        "RELEASE_TAG_PREFIX": ""
       },
       "steps": [
         {
@@ -113,7 +114,7 @@
       "description": "Only compile",
       "steps": [
         {
-          "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+          "exec": "jsii --silence-warnings=reserved-word"
         }
       ]
     },
@@ -251,10 +252,7 @@
       "description": "Create js language bindings",
       "steps": [
         {
-          "exec": "jsii_version=$(node -p \"JSON.parse(fs.readFileSync('.jsii')).jsiiVersion.split(' ')[0]\")"
-        },
-        {
-          "exec": "npx jsii-pacmak@$jsii_version -v --target js"
+          "exec": "jsii-pacmak -v --target js"
         }
       ]
     },
@@ -344,7 +342,8 @@
         "OUTFILE": "package.json",
         "CHANGELOG": "dist/changelog.md",
         "BUMPFILE": "dist/version.txt",
-        "RELEASETAG": "dist/releasetag.txt"
+        "RELEASETAG": "dist/releasetag.txt",
+        "RELEASE_TAG_PREFIX": ""
       },
       "steps": [
         {
@@ -359,6 +358,9 @@
         "CI": "0"
       },
       "steps": [
+        {
+          "exec": "yarn upgrade npm-check-updates"
+        },
         {
           "exec": "npm-check-updates --dep dev --upgrade --target=minor --reject='aws-cdk-lib,constructs'"
         },
@@ -393,7 +395,7 @@
       "description": "Watch & compile in the background",
       "steps": [
         {
-          "exec": "jsii -w --silence-warnings=reserved-word --no-fix-peer-dependencies"
+          "exec": "jsii -w --silence-warnings=reserved-word"
         }
       ]
     }
